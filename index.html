@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Credit Review Helper explains a fictional automated credit rejection and prepares a request for human review." />
+  <title>Credit Review Helper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero" aria-labelledby="page-title">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <path d="M24 3 40 9v13c0 10-6.7 17.1-16 22C14.7 39.1 8 32 8 22V9l16-6Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="24" cy="18" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M15.5 34c1.6-5 4.4-7.5 8.5-7.5s6.9 2.5 8.5 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1 id="page-title">Credit Review Helper</h1>
+        <p>Understand an automated credit rejection and prepare a request for human review.</p>
+      </div>
+    </header>
+
+    <section class="notice notice-info" aria-label="Important product limitation">
+      <div class="notice-icon" aria-hidden="true">i</div>
+      <div>
+        <p>This tool explains possible reasons for a rejection and helps you prepare a review request.</p>
+        <strong>It does not determine whether the bank was right or wrong and does not guarantee approval.</strong>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Credit review helper workspace">
+      <section class="panel input-panel" aria-labelledby="input-heading">
+        <div class="section-heading">
+          <span class="section-icon" aria-hidden="true">◯</span>
+          <div>
+            <h2 id="input-heading">1. Your information</h2>
+            <p>Please provide details about your application and credit experience so we can help you understand the decision and prepare a request for human review.</p>
+          </div>
+        </div>
+
+        <form id="credit-review-form" class="static-form" novalidate>
+          <div class="field-group">
+            <label for="application">1. What did you apply for? <span aria-hidden="true">*</span></label>
+            <select id="application" name="application" required aria-describedby="application-error">
+              <option value="">Select an option</option>
+              <option value="better_credit_card">A better credit card</option>
+              <option value="higher_credit_limit">A higher credit limit</option>
+              <option value="other_credit_product">Another credit product</option>
+            </select>
+            <p id="application-error" class="field-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="reason">2. Bank's stated rejection reason <span aria-hidden="true">*</span></label>
+            <textarea id="reason" name="reason" rows="3" required maxlength="300" aria-describedby="reason-hint reason-error" placeholder="Example: Insufficient credit history"></textarea>
+            <span id="reason-hint" class="field-hint">Use the reason provided by the bank. Maximum 300 characters.</span>
+            <p id="reason-error" class="field-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="history-length">3. Length of credit history <span aria-hidden="true">*</span></label>
+            <span id="history-length-hint" class="field-hint">How long have you had any credit accounts?</span>
+            <select id="history-length" name="historyLength" required aria-describedby="history-length-hint history-length-error">
+              <option value="">Select a length</option>
+              <option value="less_than_6_months">Less than 6 months</option>
+              <option value="6_to_12_months">6–12 months</option>
+              <option value="1_year">1 year</option>
+              <option value="2_years">2 years</option>
+              <option value="3_to_5_years">3–5 years</option>
+              <option value="more_than_5_years">More than 5 years</option>
+            </select>
+            <p id="history-length-error" class="field-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="payment-history">4. Payment history <span aria-hidden="true">*</span></label>
+            <span id="payment-history-hint" class="field-hint">Have you missed any payments on your credit accounts?</span>
+            <select id="payment-history" name="paymentHistory" required aria-describedby="payment-history-hint payment-history-error">
+              <option value="">Select your payment history</option>
+              <option value="always_on_time">No, I have always made payments on time</option>
+              <option value="one_missed_payment">Yes, I have missed one payment</option>
+              <option value="multiple_missed_payments">Yes, I have missed more than one payment</option>
+            </select>
+            <p id="payment-history-error" class="field-error" aria-live="polite"></p>
+          </div>
+
+          <fieldset class="field-group checkbox-group" id="credit-experience-group" aria-describedby="credit-experience-hint credit-experience-error">
+            <legend>5. Existing credit experience <span aria-hidden="true">*</span></legend>
+            <span id="credit-experience-hint" class="field-hint">Select all that apply. "I have no other credit accounts" cannot be combined with the other options.</span>
+            <label><input id="experience-credit-card" name="creditExperience" type="checkbox" value="credit_card" /> I have a credit card</label>
+            <label><input id="experience-other" name="creditExperience" type="checkbox" value="other_credit_account" /> I have another type of credit account</label>
+            <label><input id="experience-none" name="creditExperience" type="checkbox" value="no_other_credit_accounts" /> I have no other credit accounts</label>
+            <p id="credit-experience-error" class="field-error" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="field-group">
+            <label for="context">6. Additional evidence or context</label>
+            <span id="context-hint" class="field-hint">Include any information you think the bank may not have fully considered. Optional. Maximum 800 characters.</span>
+            <textarea id="context" name="additionalContext" rows="5" maxlength="800" aria-describedby="context-hint context-error" placeholder="Example: I have used my card responsibly for two years and never missed a payment."></textarea>
+            <p id="context-error" class="field-error" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" class="primary-button">✦ Help me understand this decision</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="privacy-note">🔒 Your information is not saved. Once you close this page, all information and results will be lost.</p>
+        </form>
+      </section>
+
+      <section class="panel results-panel" aria-labelledby="results-heading">
+        <div class="section-heading">
+          <span class="section-icon" aria-hidden="true">✦</span>
+          <div>
+            <h2 id="results-heading">2. Your results</h2>
+            <p>Here are the three things that will help you understand the rejection and prepare a request for human review.</p>
+          </div>
+        </div>
+
+        <article class="result-card result-blue">
+          <div class="result-title-row">
+            <span class="step-badge">1</span>
+            <h3>What the rejection means</h3>
+          </div>
+          <div class="empty-state">
+            <p>Your explanation will appear here after you submit your information.</p>
+          </div>
+        </article>
+
+        <article class="result-card result-green">
+          <div class="result-title-row">
+            <span class="step-badge">2</span>
+            <h3>What evidence or context may be relevant</h3>
+          </div>
+          <div class="empty-state">
+            <p>Potentially relevant evidence or context will appear here after analysis.</p>
+          </div>
+        </article>
+
+        <article class="result-card result-purple">
+          <div class="result-title-row">
+            <span class="step-badge">3</span>
+            <h3>Human review request</h3>
+          </div>
+          <div class="review-placeholder" role="textbox" aria-label="Human review request preview" aria-readonly="true"></div>
+          <div class="review-actions" aria-label="Human review request actions">
+            <button type="button" class="secondary-button" id="edit-button" disabled>✎ Edit</button>
+            <button type="button" class="copy-button" id="copy-button" disabled>▣ Copy</button>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <footer class="notice notice-warning" aria-label="Credit decision disclaimer">
+      <div class="notice-icon" aria-hidden="true">!</div>
+      <p><strong>Important:</strong> This tool provides explanations and helps you prepare a request for human review. It does not make credit decisions, determine whether the bank was correct, or guarantee that the decision will be changed.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
