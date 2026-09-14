@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NextCare MX — Fictional Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>NextCare MX</strong><span>From result to next action</span></div>
+    <nav>Case 001 · Navigator Demo</nav>
+  </header>
+  <div class="warning">FICTIONAL DEMO — Navigation support only. Not a diagnosis or medical advice. No real patient data is used.</div>
+  <main class="grid">
+    <section class="card patient">
+      <div class="avatar">LH</div>
+      <h1>Lucía Hernández</h1>
+      <p>55 · Mexico · Informal worker · Uses WhatsApp</p>
+      <span class="pill demo">FICTIONAL CASE</span>
+      <h2>Existing screening result</h2>
+      <div class="alert">Abnormal retinal screening</div>
+      <h2>Provider-defined next action</h2>
+      <div class="action">Confirmatory ophthalmology evaluation</div>
+      <dl>
+        <dt>Owner</dt><dd>Lucía / navigation support</dd>
+        <dt>Deadline</dt><dd>18 Sep 2026</dd>
+        <dt>Status</dt><dd id="statusText">ACTION REQUIRED</dd>
+        <dt>Barrier</dt><dd id="barrierText">Transportation</dd>
+        <dt>Attempts</dt><dd><span id="attemptCount">0</span> of 2</dd>
+        <dt>Escalation</dt><dd id="escalationText">Not required</dd>
+      </dl>
+    </section>
+
+    <section class="card center">
+      <h2>Navigation pathway</h2>
+      <div class="steps" id="steps">
+        <span class="done">Detected</span><span>Next action</span><span>Follow-up</span><span>Blocked</span><span>Human handoff</span>
+      </div>
+      <div class="ai-box">
+        <div class="eyebrow">SIMULATED AI OUTPUT</div>
+        <h2>Plain-language navigation support</h2>
+        <p id="aiText">This existing screening result needs a provider-defined follow-up evaluation. It is not a diagnosis. The next step is confirmatory ophthalmology evaluation.</p>
+      </div>
+      <div class="controls">
+        <label>Current barrier
+          <select id="barrierSelect">
+            <option>Transportation</option>
+            <option>Financial</option>
+            <option>Capacity</option>
+            <option>Documents</option>
+            <option>None</option>
+          </select>
+        </label>
+        <button id="attemptBtn">Record unsuccessful contact attempt</button>
+        <button id="resetBtn" class="secondary">Reset demo</button>
+      </div>
+      <div class="boundary"><strong>Clinical boundary:</strong> NextCare MX does not diagnose, choose treatment, or determine urgency. Clinicians retain those decisions.</div>
+    </section>
+
+    <aside class="card navigator">
+      <h2>Navigator dashboard</h2>
+      <div id="navStatus" class="nav-status">CASE OPEN</div>
+      <p id="navMessage">No human review required yet.</p>
+      <div class="attempts" id="attemptHistory"><strong>Attempt history</strong><p>No attempts recorded.</p></div>
+      <button id="acceptBtn" disabled>Accept unresolved case</button>
+      <div class="note">Accepting a case does not mark it resolved. The case stays unresolved until the next action is confirmed, redirected by a clinician, or the patient makes an informed opt-out.</div>
+    </aside>
+  </main>
+  <footer>Prototype for Business Bending · Week 5 · Emiliano Carballido</footer>
+  <script src="app.js"></script>
+</body>
+</html>
