@@ -74,6 +74,12 @@ G --> H
 H --> I
 ```
 
+## Image-generated mockup
+
+The following mockup was generated before implementation and used as the visual target for the prototype. All patient information shown is fictional.
+
+![NextCare MX image-generated mockup](mockup.png)
+
 ## Benchmark line
 Best benchmark: Aidoc Patient Management, because it treats findings as the beginning of follow-up workflow rather than the end. NextCare MX differs by testing a lighter Mexico-oriented, phone-first navigation layer that does not assume a deeply integrated hospital EHR environment.
 
